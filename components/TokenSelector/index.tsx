@@ -6,7 +6,6 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { COLORS } from "@/constants/theme";
 import { ReactNode, useEffect } from "react";
 import TokenSelectList from "./token-select-list";
 import { TokenSelectFooter } from "./TokenSelectorFooter";
@@ -37,7 +36,7 @@ export function TokenSelector({ children }: { children?: ReactNode }) {
   const selectedTokens = meetsThreshold(
     moralisAssets,
     ethPrice,
-    sweepthreshHold
+    sweepthreshHold,
   );
 
   return (
@@ -126,13 +125,13 @@ export default TokenSelector;
 function meetsThreshold(
   data: MoralisAssetClass[] | null,
   price: number,
-  sweepthreshHold: string
+  sweepthreshHold: string,
 ) {
   const noETH = data?.filter(
-    (token) => token.symbol !== "ETH" && token.symbol !== "WETH"
+    (token) => token.symbol !== "ETH" && token.symbol !== "WETH",
   );
 
   return noETH?.filter(
-    (token) => token.quoteUSD / price < parseFloat(sweepthreshHold)
+    (token) => token.quoteUSD / price < parseFloat(sweepthreshHold),
   );
 }

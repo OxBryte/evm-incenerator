@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import {
   Checkbox,
   HStack,
@@ -23,13 +23,8 @@ function TokenSelectListRow({ token }: { token: MoralisAssetClass }) {
       justifyContent="space-between"
       width="100%"
       whiteSpace="nowrap"
-      bg={isTokenSelected(token) ? "gray.100" : ""}
-      borderRadius="12px"
-      padding="8px"
       cursor="pointer"
-      _hover={{ bg: "gray.50" }}
-      transition="color"
-      transitionDuration="500ms"
+      className={`${isTokenSelected(token) ? "bg-white/10" : ""} hover:bg-white/20 transition-colors duration-300 px-4 py-2`}
       onClick={
         isTokenSelected(token)
           ? (e) => {
@@ -44,18 +39,18 @@ function TokenSelectListRow({ token }: { token: MoralisAssetClass }) {
     >
       <Checkbox
         isChecked={isTokenSelected(token)}
-        colorScheme="#fff"
-        iconColor={"#7F56D9"}
+        colorScheme="white"
+        iconColor={"#fff"}
       >
         <HStack alignItems="center">
           <WrapItem>
             <Avatar size="sm" name={name} src={logoURI} />
           </WrapItem>
           <VStack gap="0" alignItems="start">
-            <Text fontWeight="500" color="#281629">
+            <Text className="text-white" fontWeight="700">
               {symbol.length > 6 ? `${symbol.substring(0, 5)}...` : symbol}
             </Text>
-            <Text color="#A8BBD6" fontSize="13px" fontWeight={500}>
+            <Text className="text-white/50" fontSize="13px" fontWeight={500}>
               {name}
             </Text>
           </VStack>

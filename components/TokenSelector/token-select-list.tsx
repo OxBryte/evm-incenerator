@@ -41,9 +41,16 @@ function TokenSelectList({
       width="100%"
       height="341px"
       px="1rem"
-      pb="1.4rem"
+      py="1rem"
       overflowY="scroll"
       gap="12px"
+      sx={{
+        "&::-webkit-scrollbar": {
+          display: "none",
+        },
+        scrollbarWidth: "none",
+        msOverflowStyle: "none",
+      }}
     >
       {/* <HStack
         fontSize="smaller"

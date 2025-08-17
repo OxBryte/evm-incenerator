@@ -39,31 +39,28 @@ export function TokenSelectFooter({
 
   const totalUSDValue = useMemo(
     () => calculateTotalUSDValue(selectedTokens),
-    [selectedTokens]
+    [selectedTokens],
   );
 
   return (
     <Flex
       borderRadius={10}
       width="full"
-      background="white"
+      className="bg-[#1f1f1f]"
       py="1rem"
       overflow="hidden"
       justify="space-between"
       padding="1rem"
       alignItems="center"
     >
-      <Text color="#0099FB" fontSize="larger">
-        ~ ${totalUSDValue?.toFixed(3)}{" "}
-        <chakra.span fontSize="12px" color="#9E829F">
-          (<ETHToReceive selectedTokens={selectedTokens} />)
-        </chakra.span>
+      <Text className="whitespace-nowrap">
+        {/* ~ ${totalUSDValue?.toFixed(3)}{" "} */}
+        <ETHToReceive selectedTokens={selectedTokens} />
       </Text>
 
       <HStack>
         <Button
           alignContent="center"
-          bgColor="#FDFDFD33"
           w="102px"
           h="38px"
           border={`1px solid ${
@@ -89,12 +86,12 @@ export function TokenSelectFooter({
         >
           <Checkbox
             isChecked={isAllSelected}
-            colorScheme="#fff"
-            iconColor={"#7F56D9"}
+            colorScheme="white"
+            iconColor={"#fff"}
             _checked={{
               "& .chakra-checkbox__control": {
-                background: "white",
-                borderColor: "#7F56D9",
+                background: "#fff",
+                borderColor: "#fff",
                 borderRadius: 5,
               },
             }}

@@ -14,7 +14,7 @@ export class WalletPortfolioClass {
   unrealized_pnl: number;
   assets: AssetClass[];
   constructor(ApiRes: WalletPortfolioApiResInterface) {
-    let {
+    const {
       total_wallet_balance,
       wallets,
       total_realized_pnl,
@@ -41,7 +41,7 @@ export class AssetClass {
   decimals: number;
   address: string;
   constructor(ApiRes: AssetsInterface) {
-    let {
+    const {
       asset,
       token_balance,
       estimated_balance,
@@ -49,7 +49,7 @@ export class AssetClass {
       price_change_24h,
       contracts_balances,
     } = ApiRes;
-    let { name, symbol, logo } = asset;
+    const { name, symbol, logo } = asset;
     this.name = name;
     this.chainId = 8453;
     this.symbol = symbol;
@@ -120,7 +120,7 @@ export class MoralisAssetClass {
   isEth: boolean;
   isSpam: boolean;
   constructor(ApiRes: MoralisAssetInterface) {
-    let {
+    const {
       name,
       symbol,
       logo,

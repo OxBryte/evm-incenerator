@@ -4,7 +4,6 @@ import { TokenSelector } from "@/components/TokenSelector";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 import {
-  Box,
   Button,
   Flex,
   HStack,
@@ -13,7 +12,6 @@ import {
   Skeleton,
   chakra,
 } from "@chakra-ui/react";
-import Image from "next/image";
 import React, { useEffect } from "react";
 import { COLORS } from "@/constants/theme";
 import SweepButton from "./swap-button";

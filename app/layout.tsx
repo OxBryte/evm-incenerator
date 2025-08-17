@@ -44,8 +44,16 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const cookie = (await headers()).get("cookie");
-  const initialState = cookieToInitialState(WALLETCONNECT_CONFIG, cookie);
+  let initialState;
+  try {
+    const cookie = (await headers()).get("cookie");
+    initialState = cookieToInitialState(WALLETCONNECT_CONFIG, cookie);
+  } catch (error) {
+    // If there's an error during SSR, we'll initialize without state
+    // The client-side will handle the proper initialization
+    initialState = undefined;
+  }
+  
   return (
     <html lang="en">
       <body className="bg-background">

@@ -81,7 +81,7 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
   });
 
   //min-out put for EOA swap, array of bigint 0s
-  const minAmountOut = selectedTokens.map((t) => 0n);
+  const minAmountOut = selectedTokens.map(() => BigInt(0));
 
   //EOA swap
   // const args = [selectedTokens.map((token) => token.address), minAmountOut];
@@ -125,7 +125,7 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
   const isDisabled = !tokensAllowanceStatus || isSweeping;
 
   //for smart wallet
-  const isSweepingPatch = isBatchApprovalLoading || isExecuteLoading;
+  // const isSweepingPatch = isBatchApprovalLoading || isExecuteLoading;
   const isSweepingBatch =
     isExecuteLoading || transactionStatus === TransactionStatus.PENDING;
   const isDisabledBatch = !tokensAllowanceStatus || isSweepingBatch;
@@ -348,7 +348,7 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
                           color="#676C87"
                         >
                           Insufficient liquidity for the selected tokens and
-                          can't be sweep
+                          can&apos;t be sweep
                         </Text>
                       </Box>
                     )}

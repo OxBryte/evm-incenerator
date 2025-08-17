@@ -1,5 +1,5 @@
 export function stripPrice(_price: number) {
-  let price = _price?.toString();
+  const price = _price?.toString();
   if (Math.floor(Number(price)) > 0) {
     return { subscript: null, value: formatVolume(price) };
   }
@@ -69,4 +69,20 @@ export function getTime(timestamp: number) {
   )} ${month}, ${year} (${hours}:${minutes})`;
 
   return formattedDate;
+}
+
+/**
+ * Converts a number (including scientific notation) to a decimal string
+ * that viem's parseUnits can handle
+ */
+export function toDecimalString(value: number | string): string {
+  // If it's already a string, try to parse it as a number first
+  const numValue = typeof value === 'string' ? parseFloat(value) : value;
+  
+  // Convert to a string with enough precision to avoid scientific notation
+  // Use toFixed with a high precision to ensure we get the full decimal representation
+  const decimalString = numValue.toFixed(20);
+  
+  // Remove trailing zeros after decimal point
+  return decimalString.replace(/\.?0+$/, '');
 }

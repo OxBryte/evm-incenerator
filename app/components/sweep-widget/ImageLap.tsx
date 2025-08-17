@@ -1,5 +1,5 @@
 import { Token } from "@/lib/components/types";
-import { Avatar, AvatarGroup, Box, Flex, Text } from "@chakra-ui/react";
+import { Avatar, AvatarGroup } from "@chakra-ui/react";
 
 export interface ImageProp {
   src: string;

@@ -6,6 +6,10 @@ const nextConfig = {
     config.externals.push("pino-pretty", "lokijs", "encoding");
     return config;
   },
+  // Ensure proper handling of browser-only APIs
+  compiler: {
+    styledComponents: true,
+  },
 };
 
 export default nextConfig;

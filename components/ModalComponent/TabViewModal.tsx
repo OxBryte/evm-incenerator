@@ -46,12 +46,16 @@ const ModalComponent: FC<ModalComponentProps> = ({
           backdropBlur="2px"
         />
         <ModalContent
-          w={{ base: "90vw", md: "60vw" }}
+          w={{ base: "95vw", md: "80vw", lg: "70vw" }}
+          maxW="1200px"
           borderRadius="24px"
           py="1%"
           position={{ base: "fixed" }}
           bottom={{ base: "0", md: "auto" }}
           mb={{ base: "40px" }}
+          bg="gray.800"
+          border="1px solid"
+          borderColor="gray.700"
           {...modalContentStyle}
         >
           <ModalBody {...modalBodyStyle}>

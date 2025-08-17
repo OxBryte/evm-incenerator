@@ -5,6 +5,7 @@ import { useCallsStatus, useSendCalls } from "wagmi/experimental";
 import { useToast } from "@chakra-ui/react";
 import CustomToast from "@/components/Toast";
 import { useEffect, useState } from "react";
+import { toDecimalString } from "@/utils/numberUtils";
 
 export enum TransactionStatus {
   PENDING = "PENDING",
@@ -38,7 +39,9 @@ export const useBatchApprovals = ({
   // Construct calldata for each token
   const approveCalls = tokens.map((token, index) => {
     const amount = amounts && amounts.length > index ? amounts[index] : "0";
-    const amountBigInt = parseUnits(amount, token?.decimals);
+    // Convert scientific notation to decimal string for viem parseUnits
+    const decimalAmount = toDecimalString(amount);
+    const amountBigInt = parseUnits(decimalAmount, token?.decimals);
 
     const approveCalldata = encodeFunctionData({
       abi: erc20Abi,

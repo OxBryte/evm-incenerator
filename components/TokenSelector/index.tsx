@@ -26,7 +26,7 @@ export function TokenSelector({ children }: { children?: ReactNode }) {
 
   useEffect(() => {
     refetch();
-  }, [address, isConnected]);
+  }, [address, isConnected, refetch]);
 
   const { sweepthreshHold } = useSweepThreshhold();
   const { ethPrice } = useEthPrice({

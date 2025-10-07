@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
 import { ContainerProps, PopoverProps } from "@chakra-ui/react";
-import { Address } from "viem";
 
 export interface TabsProps {
   name: string;

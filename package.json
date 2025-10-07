@@ -6,7 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "auto-commit": "node scripts/auto-commit.js",
+    "commit": "npm run auto-commit",
+    "quick-commit": "npm run auto-commit -- --quick",
+    "commit-all": "npm run auto-commit -- --all",
+    "commit-skip": "npm run auto-commit -- --skip-checks",
+    "setup-git": "node scripts/setup-git-hooks.js"
   },
   "dependencies": {
     "@apollo/client": "^3.13.9",
@@ -50,5 +56,6 @@
     "prettier": "^3.5.3",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

@@ -325,12 +325,14 @@ async function main() {
 
   if (args.includes("--help") || args.includes("-h")) {
     log("\n📖 Auto-Commit Tool Usage:", "blue");
-    log("  npm run auto-commit              # Interactive mode");
+    log(
+      "  npm run auto-commit              # Interactive mode (skips checks by default)",
+    );
     log(
       "  npm run auto-commit --quick      # Quick commit with auto-generated message",
     );
     log("  npm run auto-commit --all        # Stage all and commit");
-    log("  npm run auto-commit --skip-checks # Skip pre-commit checks");
+    log("  npm run auto-commit --check      # Enable pre-commit validation");
     log("  npm run auto-commit --help       # Show this help");
     return;
   }
@@ -367,19 +369,19 @@ async function main() {
     return;
   }
 
-  // Run pre-commit checks (skip if --skip-checks flag is provided)
-  if (!args.includes("--skip-checks")) {
+  // Run pre-commit checks (skip by default, enable with --check flag)
+  if (args.includes("--check")) {
     if (!runPreCommitChecks()) {
       log("\n❌ Pre-commit checks failed. Aborting commit.", "red");
       log(
-        "💡 Tip: Use --skip-checks flag to bypass pre-commit validation",
+        "💡 Tip: Remove --check flag to skip pre-commit validation",
         "yellow",
       );
       process.exit(1);
     }
   } else {
     log(
-      "\n⚠️  Skipping pre-commit checks (--skip-checks flag detected)",
+      "\n⚠️  Skipping pre-commit checks by default (use --check flag to enable validation)",
       "yellow",
     );
   }

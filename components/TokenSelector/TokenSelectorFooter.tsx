@@ -1,8 +1,7 @@
-import { Button, Flex, Text, HStack, Checkbox, chakra } from "@chakra-ui/react";
+import { Button, Flex, Text, HStack, Checkbox } from "@chakra-ui/react";
 import { COLORS } from "@/constants/theme";
 import { FaArrowRight } from "react-icons/fa";
-import React, { useContext, useMemo } from "react";
-import { Token } from "@/lib/components/types";
+import React, { useContext } from "react";
 import { MoralisAssetClass } from "@/utils/classes";
 import { TokenListProvider } from "@/provider/tokenListProvider";
 import { ETHToReceive } from "../ETHToReceive";
@@ -30,17 +29,17 @@ export function TokenSelectFooter({
     return false;
   })();
 
-  const calculateTotalUSDValue = (tokens: Token[]) => {
-    return tokens?.reduce((total, token) => {
-      const tokenUSDValue = token.quoteUSD;
-      return total + tokenUSDValue;
-    }, 0);
-  };
+  // const calculateTotalUSDValue = (tokens: Token[]) => {
+  //   return tokens?.reduce((total, token) => {
+  //     const tokenUSDValue = token.quoteUSD;
+  //     return total + tokenUSDValue;
+  //   }, 0);
+  // };
 
-  const totalUSDValue = useMemo(
-    () => calculateTotalUSDValue(selectedTokens),
-    [selectedTokens],
-  );
+  // const totalUSDValue = useMemo(
+  //   () => calculateTotalUSDValue(selectedTokens),
+  //   [selectedTokens],
+  // );
 
   return (
     <Flex

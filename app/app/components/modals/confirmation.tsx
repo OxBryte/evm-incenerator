@@ -304,7 +304,7 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
                           fontSize="12px"
                           color="#676C87"
                         >
-                          The following tokens can't be swept because they have
+                          The following tokens can&apos;t be swept because they have
                           insufficient liquidity
                         </Text>
                         {tokensWithoutLiquidity.length > 0 && (

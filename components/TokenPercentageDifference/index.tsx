@@ -14,7 +14,7 @@ const TokenPercentageDifference = ({
   cacheDuration?: number;
   sum: number;
 }) => {
-  const [currentSum, setCurrentSum] = useState(sum);
+  // const [currentSum, setCurrentSum] = useState(sum);
   const [cachedSum, setCachedSum] = useState(null);
   const [percentageChange, setPercentageChange] = useState(null);
   const cachedSumRef = useRef(0);
@@ -41,15 +41,15 @@ const TokenPercentageDifference = ({
         const lastUpdated = await localforage.getItem(
           `${cacheKey}-lastUpdated`
         );
-        //@ts-ignore
+        //@ts-expect-error
         const timeDifference = currentTime - lastUpdated;
 
         if (timeDifference < cacheDuration) {
           //   console.log("Time to update cache");
         } else {
-          //@ts-ignore
+          //@ts-expect-error
           setCachedSum(cachedData);
-          //@ts-ignore
+          //@ts-expect-error
           cachedSumRef.current = cachedData;
         }
         // if (currentTime - lastUpdated < cacheDuration) {
@@ -69,7 +69,7 @@ const TokenPercentageDifference = ({
 
     // Calculate current sum
     // const sum = calculateTotalSum(data);
-    setCurrentSum(sum);
+    // setCurrentSum(sum);
 
     // Load cached sum from localForage
     loadCachedSum();
@@ -77,7 +77,7 @@ const TokenPercentageDifference = ({
     // Calculate percentage change if cached sum is available
     if (cachedSum !== null) {
       const percentage = ((sum - cachedSum) / cachedSum) * 100;
-      //@ts-ignore
+      //@ts-expect-error
       setPercentageChange(percentage);
     }
   }, [data, cacheKey, cacheDuration, cachedSum, sum]);
@@ -116,7 +116,7 @@ const TokenPercentageDifference = ({
       <Text fontSize="12px" lineHeight="14.4px">
         {percentageChange !== null && percentageChange > 0 ? "+" : ""}
         {percentageChange !== null &&
-          //@ts-ignore
+          //@ts-expect-error
           `${percentageChange.toFixed(2)}%`}
       </Text>
     </Box>

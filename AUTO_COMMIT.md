@@ -21,13 +21,13 @@ This project includes a comprehensive auto-commit system that makes it easy to c
 
 ### Primary Commands
 
-| Command                | Description                              | Usage                       |
-| ---------------------- | ---------------------------------------- | --------------------------- |
-| `npm run auto-commit`  | Interactive commit mode with options     | Main command for committing |
-| `npm run quick-commit` | Quick commit with auto-generated message | Fast commits                |
-| `npm run commit-all`   | Stage all files and commit               | Bulk commits                |
-| `npm run commit-skip`  | Commit without pre-commit checks         | Skip validation             |
-| `npm run setup-git`    | Install git hooks and configure aliases  | One-time setup              |
+| Command                | Description                                       | Usage                       |
+| ---------------------- | ------------------------------------------------- | --------------------------- |
+| `npm run auto-commit`  | Interactive commit mode (skips checks by default) | Main command for committing |
+| `npm run quick-commit` | Quick commit with auto-generated message          | Fast commits                |
+| `npm run commit-all`   | Stage all files and commit                        | Bulk commits                |
+| `npm run commit-check` | Commit with pre-commit validation enabled         | With validation             |
+| `npm run setup-git`    | Install git hooks and configure aliases           | One-time setup              |
 
 ### Git Aliases (after setup)
 
@@ -46,13 +46,13 @@ This project includes a comprehensive auto-commit system that makes it easy to c
 - **File count tracking** (e.g., "feat: components changes (3 components, 2 hooks)")
 - **Custom message support** for detailed descriptions
 
-### 🛡️ Pre-Commit Validation (Optional)
+### 🛡️ Pre-Commit Validation (Disabled by Default)
 
-- **ESLint** - Code quality and style checks (can be skipped)
-- **TypeScript** - Type checking and compilation (can be skipped)
-- **Prettier** - Code formatting validation (can be skipped)
-- **Conventional Commits** - Message format validation (can be skipped)
-- **Skip Mode** - Use `--skip-checks` flag or `npm run commit-skip` to bypass all validation
+- **ESLint** - Code quality and style checks (disabled by default)
+- **TypeScript** - Type checking and compilation (disabled by default)
+- **Prettier** - Code formatting validation (disabled by default)
+- **Conventional Commits** - Message format validation (disabled by default)
+- **Enable Validation** - Use `--check` flag or `npm run commit-check` to enable all validation
 
 ### 📁 File Categorization
 
@@ -107,11 +107,11 @@ Choice (1-4):
 - Commits with auto-generated message
 - Perfect for bulk changes
 
-#### 4. Skip Checks Mode (`npm run commit-skip`)
+#### 4. Validation Mode (`npm run commit-check`)
 
-- Skips all pre-commit validation (ESLint, TypeScript, Prettier)
-- Allows commits even with code quality issues
-- Perfect for quick commits during development
+- Enables all pre-commit validation (ESLint, TypeScript, Prettier)
+- Ensures code quality before committing
+- Perfect for production-ready commits
 
 ## 📝 Commit Message Examples
 

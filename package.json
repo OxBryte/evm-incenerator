@@ -11,7 +11,7 @@
     "commit": "npm run auto-commit",
     "quick-commit": "npm run auto-commit -- --quick",
     "commit-all": "npm run auto-commit -- --all",
-    "commit-skip": "npm run auto-commit -- --skip-checks",
+    "commit-check": "npm run auto-commit -- --check",
     "setup-git": "node scripts/setup-git-hooks.js"
   },
   "dependencies": {

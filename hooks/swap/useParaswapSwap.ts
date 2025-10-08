@@ -145,7 +145,7 @@ export const useParaSwap = () => {
     const pricesURL = `${PARASWAP_API_URL}/prices/?${queryParams}`;
     try {
       const { data, status } = await axios.get<{ priceRoute: OptimalRate }>(
-        pricesURL
+        pricesURL,
       );
       // console.log(data, status);
       return { priceRoute: data.priceRoute, status: status };
@@ -320,13 +320,13 @@ export const useParaSwap = () => {
               toast,
               "Oops! There was an issue sweeping your tokens. Please try again.",
               4000,
-              "top"
+              "top",
             );
           },
           onSettled() {
             setIsExecuteLoading(false);
           },
-        }
+        },
       );
     }
   };

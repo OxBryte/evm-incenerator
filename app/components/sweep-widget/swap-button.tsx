@@ -4,7 +4,7 @@ import { Button } from "@chakra-ui/react";
 import { useContext, useEffect, useState } from "react";
 import { useAccount } from "wagmi";
 import { useReadContracts } from "wagmi";
-import { useWeb3Modal } from "@web3modal/wagmi/react";
+import { useAppKit } from "@reown/appkit/react";
 import { erc20Abi, Address, formatUnits } from "viem";
 import ConfirmationModal from "../modals/confirmation";
 import {

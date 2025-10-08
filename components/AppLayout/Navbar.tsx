@@ -12,12 +12,14 @@ import LogoSvg from "@/assets/icons/LogoSVG.svg";
 import ConnectButton from "../Buttons/ConnectButton";
 import { CustomConnectButton } from "../Buttons/SmartWalletButton";
 import { useAccount } from "wagmi";
+import { useAppKit } from "@reown/appkit/react";
 
 const NavBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef<HTMLButtonElement>(null);
 
   const { isConnected } = useAccount();
+  const { open, close } = useAppKit();
 
   return (
     <Box
@@ -39,7 +41,7 @@ const NavBar = () => {
             </HStack>
           </HStack>
           <HStack>
-            <ConnectButton onOpen={onOpen} />
+            <ConnectButton onOpen={open} />
             {!isConnected && <CustomConnectButton />}
           </HStack>
         </HStack>

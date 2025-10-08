@@ -12,6 +12,8 @@
     "quick-commit": "npm run auto-commit -- --quick",
     "commit-all": "npm run auto-commit -- --all",
     "commit-check": "npm run auto-commit -- --check",
+    "watch-commit": "node scripts/auto-commit-watch.js",
+    "watch-commit-custom": "node scripts/auto-commit-watch.js -- --interval",
     "setup-git": "node scripts/setup-git-hooks.js"
   },
   "dependencies": {

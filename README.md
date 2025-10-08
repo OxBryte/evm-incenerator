@@ -165,20 +165,6 @@ EVM Incinerator solves a common problem in DeFi: **dust tokens**. These are smal
 
 ## 🛠️ Development
 
-### **Available Scripts**
-
-| Command             | Description                                     |
-| ------------------- | ----------------------------------------------- |
-| `yarn dev`          | Start development server                        |
-| `yarn build`        | Build for production                            |
-| `yarn start`        | Start production server                         |
-| `yarn lint`         | Run ESLint                                      |
-| `yarn auto-commit`  | Interactive commit with auto-generated messages |
-| `yarn quick-commit` | Quick commit for small changes                  |
-| `yarn commit-all`   | Stage all files and commit                      |
-| `yarn commit-check` | Commit with validation checks                   |
-| `yarn setup-git`    | Set up git hooks and aliases                    |
-
 ### **Project Structure**
 
 ```
@@ -204,7 +190,6 @@ evm-incinerator/
 ├── utils/                 # Helper functions
 ├── views/                 # Page components
 └── scripts/               # Development scripts
-    ├── auto-commit.js     # Auto-commit system
     └── setup-git-hooks.js # Git hooks setup
 ```
 

@@ -113,28 +113,39 @@ EVM Incinerator solves a common problem in DeFi: **dust tokens**. These are smal
    Required environment variables:
 
    ```bash
+   # Reown AppKit (Wallet Connection)
+   NEXT_PUBLIC_PROJECT_ID=your_reown_project_id  # Get from https://cloud.reown.com
+
    # OnchainKit Configuration
    NEXT_PUBLIC_ONCHAINKIT_PROJECT_NAME=EVM Incinerator
    NEXT_PUBLIC_URL=https://assetscooper.xyz
    NEXT_PUBLIC_ICON_URL=https://assetscooper.xyz/icon.png
-   NEXT_PUBLIC_ONCHAINKIT_API_KEY=your_api_key
+   NEXT_PUBLIC_ONCHAINKIT_API_KEY=your_onchainkit_api_key
 
-   # Frame Configuration (for MiniKit)
+   # Farcaster Frame Configuration (for MiniKit)
    FARCASTER_HEADER=your_farcaster_header
    FARCASTER_PAYLOAD=your_farcaster_payload
    FARCASTER_SIGNATURE=your_farcaster_signature
    NEXT_PUBLIC_APP_ICON=https://assetscooper.xyz/icon.png
+   NEXT_PUBLIC_APP_SUBTITLE=Token Sweeper
    NEXT_PUBLIC_APP_DESCRIPTION=Convert your remaining tokens to ETH
    NEXT_PUBLIC_APP_HERO_IMAGE=https://assetscooper.xyz/hero.png
+   NEXT_PUBLIC_SPLASH_IMAGE=https://assetscooper.xyz/splash.png
+   NEXT_PUBLIC_SPLASH_BACKGROUND_COLOR=#0A0A0A
+   NEXT_PUBLIC_APP_PRIMARY_CATEGORY=defi
+   NEXT_PUBLIC_APP_TAGLINE=Sweep dust tokens to ETH
+   NEXT_PUBLIC_APP_OG_TITLE=EVM Incinerator
+   NEXT_PUBLIC_APP_OG_DESCRIPTION=Convert your remaining tokens to ETH
+   NEXT_PUBLIC_APP_OG_IMAGE=https://assetscooper.xyz/screenshot.png
 
    # Redis Configuration (for notifications)
-   REDIS_URL=your_redis_url
-   REDIS_TOKEN=your_redis_token
+   REDIS_URL=your_upstash_redis_url
+   REDIS_TOKEN=your_upstash_redis_token
 
-   # API Keys
-   NEXT_PUBLIC_MORALIS_API_KEY=your_moralis_key
-   NEXT_PUBLIC_COVALENT_API_KEY=your_covalent_key
-   NEXT_PUBLIC_MOBULA_API_KEY=your_mobula_key
+   # Blockchain Data API Keys
+   NEXT_PUBLIC_MORALIS_API_KEY=your_moralis_api_key
+   NEXT_PUBLIC_COVALENT_API_KEY=your_covalent_api_key
+   NEXT_PUBLIC_MOBULA_API_KEY=your_mobula_api_key
    ```
 
 4. **Start development server**

@@ -30,7 +30,7 @@ interface AllowanceResultFalse {
 type AllowanceRes = AllowanceResultTrue | AllowanceResultFalse;
 
 function SweepButton() {
-  const { open } = useWeb3Modal();
+  const { open } = useAppKit();
   const { isSmartWallet } = useSmartWallet();
   const { tokenList: selectedTokens } = useContext(TokenListProvider);
 

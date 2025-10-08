@@ -37,10 +37,12 @@ const NavBar = () => {
             </HStack>
           </HStack>
           <HStack>
-            <ConnectButton onOpen={open} />
+            <ConnectButton onOpen={onOpen} />
             {!isConnected && <CustomConnectButton />}
           </HStack>
         </HStack>
+
+        <ActivitiesModal isOpen={isOpen} onClose={onClose} btnRef={btnRef} />
       </ContainerWrapper>
     </Box>
   );

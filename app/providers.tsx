@@ -8,7 +8,7 @@ import { State, WagmiProvider } from "wagmi";
 import ClientOnly from "@/components/ClientOnly";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { config } from "@/provider/WagmiProvider";
-import { getAppKit } from "@/lib/appkit";
+import { initAppKit } from "@/lib/appkit";
 
 export function Providers({
   children,
@@ -19,9 +19,9 @@ export function Providers({
 }) {
   const queryClient = new QueryClient();
 
-  // Initialize AppKit on mount
+  // Initialize AppKit on mount (client-side only)
   useEffect(() => {
-    getAppKit();
+    initAppKit();
   }, []);
 
   return (

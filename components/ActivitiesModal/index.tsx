@@ -373,42 +373,77 @@ const ActivitiesModal: React.FC<IModals> = ({ isOpen, onClose, btnRef }) => {
           </VStack>
         </MotionBox>
 
-        <DrawerBody>
-          <Tabs size="lg">
-            <TabList justifyContent="flexStart">
+        <DrawerBody px="0" py="0">
+          <Tabs variant="unstyled" colorScheme="purple">
+            <TabList
+              px="24px"
+              pt="20px"
+              borderBottom="1px solid"
+              borderColor="rgba(255, 255, 255, 0.1)"
+              gap="8px"
+            >
               <Tab
-                color={COLORS.tabTextColor}
-                _selected={{ color: "#2C333B", bg: "none", fontWeight: 700 }}
-                fontWeight={400}
+                color="rgba(255, 255, 255, 0.5)"
+                fontSize="15px"
+                fontWeight={500}
+                px="16px"
+                py="10px"
+                borderRadius="10px"
+                transition="all 0.2s"
+                _selected={{
+                  color: "white",
+                  bg: "rgba(102, 126, 234, 0.15)",
+                  fontWeight: 600,
+                  boxShadow: "0 2px 8px rgba(102, 126, 234, 0.2)",
+                }}
+                _hover={{
+                  bg: "rgba(255, 255, 255, 0.05)",
+                }}
               >
                 Tokens
               </Tab>
               <Tab
-                color={COLORS.tabTextColor}
-                _selected={{ color: "#2C333B", bg: "none", fontWeight: 700 }}
-                fontWeight={400}
+                color="rgba(255, 255, 255, 0.5)"
+                fontSize="15px"
+                fontWeight={500}
+                px="16px"
+                py="10px"
+                borderRadius="10px"
+                transition="all 0.2s"
+                _selected={{
+                  color: "white",
+                  bg: "rgba(102, 126, 234, 0.15)",
+                  fontWeight: 600,
+                  boxShadow: "0 2px 8px rgba(102, 126, 234, 0.2)",
+                }}
+                _hover={{
+                  bg: "rgba(255, 255, 255, 0.05)",
+                }}
               >
                 Transactions
               </Tab>
             </TabList>
 
             <TabPanels>
-              <TabPanel>
+              <TabPanel px="24px" py="20px">
                 {isLoading ? (
-                  <Box
-                    display="flex"
-                    justifyContent="center"
-                    alignItems="center"
-                    height="100px"
+                  <Flex
+                    justify="center"
+                    align="center"
+                    height="200px"
+                    flexDir="column"
+                    gap="16px"
                   >
-                    <ClipLoader size={30} color={"#4A90E2"} />
-                    <Text ml={4}>Loading tokens...</Text>
-                  </Box>
+                    <Spinner size="lg" color="#667eea" thickness="4px" />
+                    <Text color="rgba(255, 255, 255, 0.6)" fontSize="14px">
+                      Loading tokens...
+                    </Text>
+                  </Flex>
                 ) : (
                   <Tokens userWalletTOKENS={userWalletTokens} />
                 )}
               </TabPanel>
-              <TabPanel>
+              <TabPanel px="24px" py="20px">
                 <Transactions
                   txns={txns?.tokenSwappeds}
                   loading={loading}

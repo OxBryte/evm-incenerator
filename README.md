@@ -165,6 +165,15 @@ EVM Incinerator solves a common problem in DeFi: **dust tokens**. These are smal
 
 ## 🛠️ Development
 
+### **Available Scripts**
+
+| Command       | Description                  |
+| ------------- | ---------------------------- |
+| `yarn dev`    | Start development server     |
+| `yarn build`  | Build for production         |
+| `yarn start`  | Start production server      |
+| `yarn lint`   | Run ESLint                   |
+
 ### **Project Structure**
 
 ```

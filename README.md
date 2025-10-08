@@ -72,10 +72,12 @@ EVM Incinerator solves a common problem in DeFi: **dust tokens**. These are smal
 
 - **Frontend**: Next.js 15, React 18, TypeScript
 - **UI Library**: Chakra UI with custom theming
-- **Web3**: Wagmi v2, Viem v2, Web3Modal
+- **Web3**: Wagmi v2.17, Viem v2.38, Reown AppKit v1.8.9
 - **State Management**: React Context, Apollo Client
 - **Styling**: Tailwind CSS, Framer Motion
-- **Data**: Moralis API, Covalent API, Mobula API
+- **Animations**: Framer Motion for smooth UX
+- **Data APIs**: Moralis, Covalent, Mobula
+- **Infrastructure**: Upstash Redis, GraphQL
 
 ## 🚀 Quick Start
 

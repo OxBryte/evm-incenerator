@@ -49,6 +49,7 @@ export default async function RootLayout({
     const cookie = (await headers()).get("cookie");
     initialState = cookieToInitialState(config, cookie);
   } catch (error) {
+    console.log(error);
     // If there's an error during SSR, we'll initialize without state
     // The client-side will handle the proper initialization
     initialState = undefined;

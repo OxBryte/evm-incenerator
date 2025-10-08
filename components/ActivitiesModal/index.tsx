@@ -122,10 +122,7 @@ const ActivitiesModal: React.FC<IModals> = ({ isOpen, onClose, btnRef }) => {
       size={"sm"}
       blockScrollOnMount={true}
     >
-      <DrawerOverlay
-        bg="rgba(0, 0, 0, 0.7)"
-        backdropFilter="blur(10px)"
-      />
+      <DrawerOverlay bg="rgba(0, 0, 0, 0.7)" backdropFilter="blur(10px)" />
       <DrawerContent
         bg="linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 100%)"
         borderLeft={{ base: "none", md: "1px solid" }}
@@ -152,7 +149,8 @@ const ActivitiesModal: React.FC<IModals> = ({ isOpen, onClose, btnRef }) => {
             left: 0,
             right: 0,
             bottom: 0,
-            bgGradient: "linear(to-br, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.05))",
+            bgGradient:
+              "linear(to-br, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.05))",
             zIndex: 0,
           }}
         >
@@ -177,7 +175,8 @@ const ActivitiesModal: React.FC<IModals> = ({ isOpen, onClose, btnRef }) => {
                     inset: "-2px",
                     borderRadius: "full",
                     padding: "2px",
-                    background: "linear-gradient(135deg, rgba(102, 126, 234, 0.5), rgba(118, 75, 162, 0.5))",
+                    background:
+                      "linear-gradient(135deg, rgba(102, 126, 234, 0.5), rgba(118, 75, 162, 0.5))",
                     mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
                     maskComposite: "exclude",
                   }}
@@ -231,10 +230,7 @@ const ActivitiesModal: React.FC<IModals> = ({ isOpen, onClose, btnRef }) => {
                       </Text>
 
                       {addressCopied ? (
-                        <MdCheckCircleOutline
-                          size={16}
-                          color="#00BA82"
-                        />
+                        <MdCheckCircleOutline size={16} color="#00BA82" />
                       ) : (
                         <HiOutlineDocumentDuplicate
                           size={16}
@@ -300,7 +296,11 @@ const ActivitiesModal: React.FC<IModals> = ({ isOpen, onClose, btnRef }) => {
             {/* Balance Section */}
             <VStack align="start" spacing="12px" width="100%" mt="8px">
               <HStack spacing="10px">
-                <Text fontWeight={600} fontSize="14px" color="rgba(255, 255, 255, 0.6)">
+                <Text
+                  fontWeight={600}
+                  fontSize="14px"
+                  color="rgba(255, 255, 255, 0.6)"
+                >
                   Total Balance
                 </Text>
 
@@ -348,8 +348,8 @@ const ActivitiesModal: React.FC<IModals> = ({ isOpen, onClose, btnRef }) => {
                             ? Number(
                                 userWalletTokens.reduce(
                                   (sum, item) => sum + item.quoteUSD,
-                                  0
-                                )
+                                  0,
+                                ),
                               )
                             : 0
                         }
@@ -364,7 +364,7 @@ const ActivitiesModal: React.FC<IModals> = ({ isOpen, onClose, btnRef }) => {
                     cacheDuration={300}
                     sum={userWalletTokens.reduce(
                       (sum, item) => sum + item.quoteUSD,
-                      0
+                      0,
                     )}
                   />
                 </HStack>

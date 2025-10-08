@@ -46,7 +46,7 @@ export default function ConnectButtonRainbow({
       borderRadius="12px"
       border="1px solid"
       borderColor="rgba(255, 255, 255, 0.1)"
-      transition="all 0.3s ease"
+      transition={{ duration: 0.3, ease: "easeInOut" }}
       onClick={() => open()}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
@@ -93,7 +93,7 @@ function CustomConnectButton({ onOpen, address }: Props) {
       borderColor="rgba(255, 255, 255, 0.1)"
       backdropFilter="blur(10px)"
       cursor="pointer"
-      transition="all 0.3s ease"
+      transition={{ duration: 0.3, ease: "easeInOut" }}
       _hover={{
         bg: "rgba(255, 255, 255, 0.08)",
         borderColor: "rgba(102, 126, 234, 0.5)",

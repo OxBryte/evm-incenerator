@@ -33,4 +33,3 @@ export function getAppKit() {
 if (typeof window !== "undefined") {
   getAppKit();
 }
-

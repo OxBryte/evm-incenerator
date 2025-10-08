@@ -7,7 +7,6 @@ import {
   DrawerFooter,
   Text,
   Box,
-  Circle,
   Spinner,
   HStack,
   DrawerContent,
@@ -21,10 +20,15 @@ import {
   TabPanel,
   useBreakpointValue,
   DrawerOverlay,
+  IconButton,
+  VStack,
+  Badge,
 } from "@chakra-ui/react";
 import { COLORS } from "@/constants/theme";
 import { IoMdClose } from "react-icons/io";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
+import { RiLogoutBoxRLine } from "react-icons/ri";
+import { HiOutlineExternalLink } from "react-icons/hi";
 import Tokens from "./Tokens";
 import Transactions from "./Transactions";
 import { useAccount, useBalance, useDisconnect } from "wagmi";
@@ -32,7 +36,6 @@ import { truncateAddress } from "@/utils/walletUtils";
 import { useBalances } from "@/hooks/balances/useBalances";
 import Avatar from "@/assets/svg";
 import FormatNumber from "../FormatNumber";
-import { useWalletsPortfolio } from "@/hooks/useMobula";
 import { MoralisAssetClass } from "@/utils/classes";
 import { useQuery } from "@apollo/client";
 import { GET_ACCOUNT_TX } from "@/utils/queries";
@@ -42,13 +45,11 @@ import Cookies from "js-cookie";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { ClipLoader } from "react-spinners";
 import { useSmartWallet } from "@/hooks/useSmartWallet";
-import {
-  WalletDropdown,
-  WalletDropdownLink,
-  WalletDropdownDisconnect,
-} from "@coinbase/onchainkit/wallet";
 import Link from "next/link";
 import TokenPercentageDifference from "../TokenPercentageDifference";
+import { motion } from "framer-motion";
+
+const MotionBox = motion(Box);
 
 interface IModals {
   isOpen: boolean;

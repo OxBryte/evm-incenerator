@@ -13,27 +13,7 @@ interface MainAppLayoutProps {
 }
 
 const MainAppLayout: React.FC<MainAppLayoutProps> = ({ children }) => {
-  // const [isModalOpen, setModalOpen] = useState<boolean>(false);
 
-  // useEffect(() => {
-  //   const lastVisit = localStorage.getItem("lastVisit");
-  //   const weeksToShowModal = 2;
-
-  //   if (!lastVisit) {
-  //     localStorage.setItem("lastVisit", new Date().toISOString());
-  //     setModalOpen(true); //**Show the modal for the first visit
-  //   } else {
-  //     if (checkDateRange(lastVisit, weeksToShowModal)) {
-  //       setModalOpen(true); //**Show the modal if returning after the specified weeks
-  //     }
-  //   }
-  //   //**Updating the last visit date
-  //   localStorage.setItem("lastVisit", new Date().toISOString());
-  // }, []);
-
-  // const closeModal = () => {
-  //   setModalOpen(false);
-  // };
 
   return (
     <StateContextProvider>
@@ -41,9 +21,6 @@ const MainAppLayout: React.FC<MainAppLayoutProps> = ({ children }) => {
         as="div"
         direction="column"
         minH="100vh"
-        // bgImage={["/image/Perspective-Background-lines.png"]}
-        // bgSize={"cover"}
-        // bgPos={["inherit"]}
       >
         <AppNavbar />
         <Box flex="1" className="w-full" overflow="auto">

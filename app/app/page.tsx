@@ -167,7 +167,7 @@ const Sweep: React.FC = () => {
             >
               Aggregate low-value tokens scattered across your wallet and
               convert them to ETH. Save on gas fees and maximize your
-              portfolio's potential.
+              portfolio&apos;s potential.
             </Text>
           </VStack>
 

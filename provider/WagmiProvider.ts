@@ -3,7 +3,8 @@ import { WagmiAdapter } from "@reown/appkit-adapter-wagmi";
 import { base } from "@reown/appkit/networks";
 
 // Get projectId from https://dashboard.reown.com
-export const projectId = process.env.NEXT_PUBLIC_PROJECT_ID;
+// Fallback to WALLETCONNECT_PROJECT_ID for backwards compatibility
+export const projectId = process.env.NEXT_PUBLIC_PROJECT_ID || "b10ff2f14f1c8a4efecf95865ebb1ac2";
 
 if (!projectId) {
   throw new Error("Project ID is not defined");

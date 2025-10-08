@@ -13,9 +13,8 @@ import { useAccount } from "wagmi";
 import { useAppKit } from "@reown/appkit/react";
 
 const NavBar = () => {
-
   const { isConnected } = useAccount();
-  const { open, close } = useAppKit();
+  const { open } = useAppKit();
 
   return (
     <Box
@@ -41,7 +40,6 @@ const NavBar = () => {
             {!isConnected && <CustomConnectButton />}
           </HStack>
         </HStack>
-
       </ContainerWrapper>
     </Box>
   );

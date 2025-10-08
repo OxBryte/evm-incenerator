@@ -178,28 +178,44 @@ EVM Incinerator solves a common problem in DeFi: **dust tokens**. These are smal
 
 ```
 evm-incinerator/
-├── app/                    # Next.js app router
-│   ├── app/               # Main application pages
-│   ├── api/               # API routes
-│   └── layout.tsx         # Root layout
-├── components/            # Reusable UI components
-│   ├── TokenSelector/     # Token selection interface
-│   ├── ActivitiesModal/   # Wallet activity modal
-│   ├── Buttons/           # Custom button components
-│   └── modals/            # Approval and confirmation modals
-├── hooks/                 # Custom React hooks
-│   ├── approvals/         # Token approval logic
-│   ├── balances/          # Balance fetching
-│   └── swap/              # Swap execution logic
-├── constants/             # Configuration and constants
-│   ├── abi/              # Smart contract ABIs
-│   ├── contractAddress/  # Contract addresses
-│   └── theme.ts          # UI theme configuration
-├── lib/                   # Utility libraries
-├── utils/                 # Helper functions
-├── views/                 # Page components
-└── scripts/               # Development scripts
-    └── setup-git-hooks.js # Git hooks setup
+├── app/                      # Next.js app router
+│   ├── app/                 # Main application (Sweep interface)
+│   ├── api/                 # API routes (notify, webhook)
+│   ├── layout.tsx           # Root layout with providers
+│   ├── page.tsx             # Landing page (MiniKit frame)
+│   └── providers.tsx        # Reown AppKit & provider setup
+├── components/              # Reusable UI components
+│   ├── TokenSelector/       # Token selection with grid/list views
+│   ├── ActivitiesModal/     # Modern wallet activity sidebar
+│   ├── AppLayout/           # Navbar and footer
+│   ├── Buttons/             # Connect wallet buttons
+│   └── modals/              # Approval and confirmation modals
+├── hooks/                   # Custom React hooks
+│   ├── approvals/           # Batch approval logic
+│   ├── balances/            # Balance & portfolio fetching
+│   ├── swap/                # Paraswap integration
+│   └── useSmartWallet.ts    # Smart wallet detection
+├── provider/                # React context providers
+│   ├── WagmiProvider.ts     # Reown AppKit configuration
+│   ├── web3Provider.tsx     # Wagmi & React Query
+│   ├── tokenListProvider.tsx # Token selection state
+│   └── apolloProvider.tsx   # GraphQL client
+├── constants/               # Configuration files
+│   ├── abi/                # Smart contract ABIs
+│   ├── contractAddress/    # Deployed contract addresses
+│   ├── config/             # Reown AppKit config
+│   └── theme.ts            # UI theme & colors
+├── lib/                     # Core utilities
+│   ├── appkit.ts           # Reown AppKit singleton
+│   ├── covalent.ts         # Blockchain data API
+│   └── notification.ts     # Push notifications
+├── utils/                   # Helper functions
+│   ├── walletUtils.ts      # Address formatting
+│   ├── numberUtils.ts      # Number formatting
+│   └── network.ts          # Chain configurations
+├── views/                   # Landing page sections
+│   └── home/               # Hero, features, footer
+└── assets/                  # Images, fonts, SVGs
 ```
 
 ### **Key Components**

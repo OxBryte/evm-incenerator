@@ -4,7 +4,7 @@ import "./chakra.css";
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Providers } from "./providers";
-import { WALLETCONNECT_CONFIG } from "@/constants/config";
+import { config } from "@/provider/WagmiProvider";
 import { cookieToInitialState } from "wagmi";
 import { headers } from "next/headers";
 

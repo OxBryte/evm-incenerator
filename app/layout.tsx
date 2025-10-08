@@ -47,7 +47,7 @@ export default async function RootLayout({
   let initialState;
   try {
     const cookie = (await headers()).get("cookie");
-    initialState = cookieToInitialState(WALLETCONNECT_CONFIG, cookie);
+    initialState = cookieToInitialState(config, cookie);
   } catch (error) {
     // If there's an error during SSR, we'll initialize without state
     // The client-side will handle the proper initialization

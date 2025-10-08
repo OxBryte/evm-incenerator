@@ -43,24 +43,14 @@ const NavBar = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <Box
-        bg={
-          isScrolled
-            ? "rgba(10, 10, 10, 0.8)"
-            : "rgba(10, 10, 10, 0.3)"
-        }
+        bg={isScrolled ? "rgba(10, 10, 10, 0.8)" : "rgba(10, 10, 10, 0.3)"}
         backdropFilter={isScrolled ? "blur(20px)" : "blur(0px)"}
         borderBottom="1px solid"
         borderColor={
-          isScrolled
-            ? "rgba(255, 255, 255, 0.1)"
-            : "rgba(255, 255, 255, 0.05)"
+          isScrolled ? "rgba(255, 255, 255, 0.1)" : "rgba(255, 255, 255, 0.05)"
         }
         transition="all 0.3s ease"
-        boxShadow={
-          isScrolled
-            ? "0 4px 30px rgba(0, 0, 0, 0.3)"
-            : "none"
-        }
+        boxShadow={isScrolled ? "0 4px 30px rgba(0, 0, 0, 0.3)" : "none"}
         py={isScrolled ? "8px" : "12px"}
       >
         <ContainerWrapper>
@@ -72,12 +62,14 @@ const NavBar = () => {
                   whileTap={{ scale: 0.95 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Image 
-                    alt="Logo" 
+                  <Image
+                    alt="Logo"
                     src={LogoSvg}
                     style={{
-                      filter: isScrolled ? "drop-shadow(0 0 10px rgba(102, 126, 234, 0.3))" : "none",
-                      transition: "filter 0.3s ease"
+                      filter: isScrolled
+                        ? "drop-shadow(0 0 10px rgba(102, 126, 234, 0.3))"
+                        : "none",
+                      transition: "filter 0.3s ease",
                     }}
                   />
                 </MotionBox>

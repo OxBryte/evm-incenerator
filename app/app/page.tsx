@@ -2,9 +2,9 @@
 
 import React from "react";
 import ContainerWrapper from "@/components/ContainerWrapper";
-import { VStack, Text, Box, HStack, Grid, Flex, Icon } from "@chakra-ui/react";
+import { VStack, Text, Box, Grid, Flex, Icon } from "@chakra-ui/react";
 import SweepWidget from "./components/sweep-widget";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { FiZap, FiTrendingUp, FiShield } from "react-icons/fi";
 import { RiSparkling2Fill } from "react-icons/ri";
 

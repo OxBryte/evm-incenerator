@@ -13,18 +13,11 @@ interface MainAppLayoutProps {
 }
 
 const MainAppLayout: React.FC<MainAppLayoutProps> = ({ children }) => {
-
-
   return (
     <StateContextProvider>
-      <Flex
-        as="div"
-        direction="column"
-        minH="100vh"
-      >
+      <Flex as="div" direction="column" minH="100vh">
         <AppNavbar />
         <Box flex="1" className="w-full" overflow="auto">
-          {/* <DialogModal isOpen={isModalOpen} onClose={closeModal} /> */}
           {children}
         </Box>
       </Flex>

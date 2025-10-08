@@ -297,9 +297,20 @@ export const assetscooper_contract = "0x...";
 export const PARASWAP_TRANSFER_PROXY = "0x...";
 ```
 
+## 🎯 Recent Updates
+
+### **v0.1.0 - Modern UI Redesign**
+- ✨ Complete UI overhaul with modern dark theme
+- 🎨 Animated background gradients and smooth transitions
+- 🔄 Migrated from Web3Modal to Reown AppKit
+- 💫 Enhanced navbar with scroll-based blur effects
+- 🎭 Redesigned activities sidebar with glass morphism
+- 🚀 Improved connect wallet buttons with animations
+- 📱 Better mobile responsive design
+
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
+We welcome contributions! Here's how you can help:
 
 ### **Development Workflow**
 
@@ -309,22 +320,29 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
    git checkout -b feature/amazing-feature
    ```
 3. **Make your changes**
-4. **Commit your changes**
+4. **Test thoroughly**
    ```bash
-   yarn auto-commit
+   yarn dev  # Test your changes locally
+   yarn lint # Check for linting errors
    ```
-5. **Push to your branch**
+5. **Commit your changes**
+   ```bash
+   git add .
+   git commit -m "feat: add amazing feature"
+   ```
+6. **Push to your branch**
    ```bash
    git push origin feature/amazing-feature
    ```
-6. **Open a Pull Request**
+7. **Open a Pull Request**
 
-### **Code Quality**
+### **Code Quality Standards**
 
-- ESLint and Prettier are configured
-- TypeScript for type safety
-- Conventional commit messages
-- Auto-commit system for easy development
+- ✅ **ESLint**: Code quality checks configured
+- ✅ **Prettier**: Code formatting enforced
+- ✅ **TypeScript**: Full type safety
+- ✅ **React Best Practices**: Hooks, component patterns
+- ✅ **Performance**: Optimized renders and lazy loading
 
 ## 📄 License
 

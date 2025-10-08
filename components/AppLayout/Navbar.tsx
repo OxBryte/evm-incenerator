@@ -2,11 +2,9 @@
 
 import ContainerWrapper from "../ContainerWrapper";
 import { Box, HStack } from "@chakra-ui/react";
-import { useRef } from "react";
 import { memo } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import ActivitiesModal from "../ActivitiesModal";
 
 import LogoSvg from "@/assets/icons/LogoSVG.svg";
 import ConnectButton from "../Buttons/ConnectButton";
@@ -15,7 +13,6 @@ import { useAccount } from "wagmi";
 import { useAppKit } from "@reown/appkit/react";
 
 const NavBar = () => {
-  const btnRef = useRef<HTMLButtonElement>(null);
 
   const { isConnected } = useAccount();
   const { open, close } = useAppKit();

@@ -45,7 +45,6 @@ const NavBar = () => {
           </HStack>
         </HStack>
 
-        <ActivitiesModal isOpen={isOpen} onClose={onClose} btnRef={btnRef} />\\
       </ContainerWrapper>
     </Box>
   );

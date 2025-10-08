@@ -20,7 +20,13 @@ const queryClient = new QueryClient();
 
 if (!WALLETCONNECT_PROJECT_ID) throw new Error("Project ID is not defined");
 
-function Web3ModalProvider({ children, initialState }: { children: ReactNode; initialState?: State }) {
+function Web3ModalProvider({
+  children,
+  initialState,
+}: {
+  children: ReactNode;
+  initialState?: State;
+}) {
   useEffect(() => {
     // Create modal only on client side
     createWeb3Modal({

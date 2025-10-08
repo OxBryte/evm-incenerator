@@ -454,23 +454,37 @@ const ActivitiesModal: React.FC<IModals> = ({ isOpen, onClose, btnRef }) => {
           </Tabs>
         </DrawerBody>
 
-        <DrawerFooter display={{ base: "none", md: "flex" }}>
-          <Center
-            as={Button}
+        <DrawerFooter
+          borderTop="1px solid"
+          borderColor="rgba(255, 255, 255, 0.1)"
+          px="24px"
+          py="20px"
+        >
+          <Button
             width="100%"
-            bgColor="#FFDFE3"
-            color="#E2001B"
-            fontWeight={400}
-            borderRadius="8px"
-            h="40px"
+            bg="rgba(226, 0, 27, 0.1)"
+            border="1px solid"
+            borderColor="rgba(226, 0, 27, 0.3)"
+            color="#FF4D4F"
+            fontWeight={600}
+            fontSize="15px"
+            borderRadius="12px"
+            h="48px"
+            leftIcon={<RiLogoutBoxRLine size="18px" />}
             onClick={disconnectAndCloseModal}
+            transition="all 0.3s"
             _hover={{
-              bgColor: "#FFDFE3",
-              color: "#E2001B",
+              bg: "rgba(226, 0, 27, 0.15)",
+              borderColor: "rgba(226, 0, 27, 0.5)",
+              transform: "translateY(-2px)",
+              boxShadow: "0 4px 12px rgba(226, 0, 27, 0.2)",
+            }}
+            _active={{
+              transform: "translateY(0px)",
             }}
           >
             Disconnect Wallet
-          </Center>
+          </Button>
         </DrawerFooter>
       </DrawerContent>
     </Drawer>

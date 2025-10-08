@@ -123,15 +123,16 @@ const ActivitiesModal: React.FC<IModals> = ({ isOpen, onClose, btnRef }) => {
       blockScrollOnMount={true}
     >
       <DrawerOverlay
-        display={{ base: "flex", md: "none" }}
-        bg="#06081A80"
-        backdropFilter="auto"
-        backdropBlur="2px"
+        bg="rgba(0, 0, 0, 0.7)"
+        backdropFilter="blur(10px)"
       />
       <DrawerContent
-        border="1px solid #E7BFE7"
-        background="#FDFDFD"
-        borderRadius={{ base: "20px 20px 0px 0px", md: "0px" }}
+        bg="linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 100%)"
+        borderLeft={{ base: "none", md: "1px solid" }}
+        borderTop={{ base: "1px solid", md: "none" }}
+        borderColor="rgba(102, 126, 234, 0.2)"
+        borderRadius={{ base: "24px 24px 0px 0px", md: "0px" }}
+        boxShadow="0 -4px 40px rgba(0, 0, 0, 0.5)"
       >
         {/* ----- Heading ----- */}
         <Box

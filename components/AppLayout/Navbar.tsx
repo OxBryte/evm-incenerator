@@ -1,7 +1,7 @@
 "use client";
 
 import ContainerWrapper from "../ContainerWrapper";
-import { Box, HStack, useDisclosure } from "@chakra-ui/react";
+import { Box, HStack } from "@chakra-ui/react";
 import { useRef } from "react";
 import { memo } from "react";
 import Link from "next/link";
@@ -15,7 +15,6 @@ import { useAccount } from "wagmi";
 import { useAppKit } from "@reown/appkit/react";
 
 const NavBar = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();\
   const btnRef = useRef<HTMLButtonElement>(null);
 
   const { isConnected } = useAccount();

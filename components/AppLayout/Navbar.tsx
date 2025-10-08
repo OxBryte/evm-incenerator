@@ -18,7 +18,7 @@ const NavBar = () => {
   const btnRef = useRef<HTMLButtonElement>(null);
 
   const { isConnected } = useAccount();
-  const { open } = useAppKit();
+  const { open, close } = useAppKit();
 
   return (
     <Box
@@ -45,7 +45,7 @@ const NavBar = () => {
           </HStack>
         </HStack>
 
-        <ActivitiesModal isOpen={isOpen} onClose={close} btnRef={btnRef} />
+        <ActivitiesModal isOpen={isOpen} onClose={onClose} btnRef={btnRef} />
       </ContainerWrapper>
     </Box>
   );

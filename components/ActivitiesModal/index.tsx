@@ -134,192 +134,244 @@ const ActivitiesModal: React.FC<IModals> = ({ isOpen, onClose, btnRef }) => {
         borderRadius={{ base: "24px 24px 0px 0px", md: "0px" }}
         boxShadow="0 -4px 40px rgba(0, 0, 0, 0.5)"
       >
-        {/* ----- Heading ----- */}
-        <Box
-          py="20px"
-          px="20px"
-          flexDir="column"
-          bgImage={["/image/Header_image.png"]}
-          bgSize={"cover"}
-          bgPos={["", "inherit", "inherit"]}
+        {/* ----- Header ----- */}
+        <MotionBox
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          py="24px"
+          px="24px"
+          borderBottom="1px solid"
+          borderColor="rgba(255, 255, 255, 0.1)"
+          position="relative"
+          overflow="hidden"
+          _before={{
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            bgGradient: "linear(to-br, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.05))",
+            zIndex: 0,
+          }}
         >
-          {/* ----- Heading Account detail ----- */}
-          <Flex flexDir="column">
-            <Flex justify="space-between">
-              <HStack>
-                {/* -------------------- This is for EOA users --------------------- */}
-                <Avatar width={32} height={32} />
-                <CopyToClipboard
-                  text={address ?? ""}
-                  onCopy={() => {
-                    setAddressCopied(true);
-                    setTimeout(() => {
-                      setAddressCopied(false);
-                    }, 800);
+          <VStack spacing="20px" position="relative" zIndex={1}>
+            {/* Account Info */}
+            <Flex justify="space-between" width="100%">
+              <HStack spacing="12px">
+                <Box
+                  width="48px"
+                  height="48px"
+                  borderRadius="full"
+                  bg="rgba(102, 126, 234, 0.15)"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  border="2px solid"
+                  borderColor="rgba(102, 126, 234, 0.3)"
+                  position="relative"
+                  _before={{
+                    content: '""',
+                    position: "absolute",
+                    inset: "-2px",
+                    borderRadius: "full",
+                    padding: "2px",
+                    background: "linear-gradient(135deg, rgba(102, 126, 234, 0.5), rgba(118, 75, 162, 0.5))",
+                    mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                    maskComposite: "exclude",
                   }}
                 >
-                  <HStack>
-                    <Text
-                      fontSize="16px"
-                      lineHeight="19.2px"
-                      fontWeight={502}
-                      color="#151829"
+                  <Avatar width={32} height={32} />
+                </Box>
+
+                <VStack align="start" spacing="4px">
+                  {isSmartWallet && (
+                    <Badge
+                      fontSize="10px"
+                      px="8px"
+                      py="2px"
+                      borderRadius="6px"
+                      bg="rgba(0, 186, 130, 0.15)"
+                      color="#00BA82"
+                      border="1px solid"
+                      borderColor="rgba(0, 186, 130, 0.3)"
+                      fontWeight="600"
+                    >
+                      Smart Wallet
+                    </Badge>
+                  )}
+                  <CopyToClipboard
+                    text={address ?? ""}
+                    onCopy={() => {
+                      setAddressCopied(true);
+                      setTimeout(() => {
+                        setAddressCopied(false);
+                      }, 800);
+                    }}
+                  >
+                    <HStack
+                      spacing="6px"
                       cursor="pointer"
+                      px="12px"
+                      py="6px"
+                      borderRadius="8px"
+                      transition="all 0.2s"
                       _hover={{
-                        cursor: "pointer",
-                        color: "#9E829F",
+                        bg: "rgba(255, 255, 255, 0.05)",
                       }}
                     >
-                      {truncateAddress(address || "")}
-                    </Text>
+                      <Text
+                        fontSize="15px"
+                        fontWeight="600"
+                        color="white"
+                        letterSpacing="0.3px"
+                      >
+                        {truncateAddress(address || "")}
+                      </Text>
 
-                    {addressCopied ? (
-                      <MdCheckCircleOutline
-                        size={16}
-                        aria-hidden="true"
-                        color={COLORS.balTextColor}
-                      />
-                    ) : (
-                      <HiOutlineDocumentDuplicate
-                        size={16}
-                        style={{ cursor: "pointer" }}
-                      />
-                    )}
-                  </HStack>
-                </CopyToClipboard>
+                      {addressCopied ? (
+                        <MdCheckCircleOutline
+                          size={16}
+                          color="#00BA82"
+                        />
+                      ) : (
+                        <HiOutlineDocumentDuplicate
+                          size={16}
+                          color="rgba(255, 255, 255, 0.5)"
+                        />
+                      )}
+                    </HStack>
+                  </CopyToClipboard>
+                </VStack>
               </HStack>
 
-              <HStack>
-                <Center
-                  display={{ base: "flex", md: "none" }}
-                  as={Button}
-                  width="95px"
-                  bgColor="#FFDFE3"
-                  py="10px"
-                  px="10px"
-                  color="#E2001B"
-                  fontWeight={400}
-                  borderRadius="104px"
-                  h="29px"
-                  onClick={disconnectAndCloseModal}
-                  _hover={{
-                    bgColor: "#FFDFE3",
-                    color: "#E2001B",
-                  }}
-                >
-                  Disconnect
-                </Center>
-
-                <Circle
-                  onClick={onClose}
-                  background="#018FE91A"
-                  borderRadius="50px"
-                  //@ts-ignore
-                  width="32px"
-                  height="32px"
-                  cursor="pointer"
-                >
-                  <IoMdClose color="black" />
-                </Circle>
-              </HStack>
+              <IconButton
+                aria-label="Close drawer"
+                icon={<IoMdClose size="20px" />}
+                onClick={onClose}
+                bg="rgba(255, 255, 255, 0.05)"
+                color="white"
+                borderRadius="12px"
+                size="md"
+                _hover={{
+                  bg: "rgba(255, 255, 255, 0.1)",
+                }}
+              />
             </Flex>
 
-            {/* ---------------------- This is for coinbase smart wallet users --------------------- */}
-            {isSmartWallet ? (
-              <Box
-                mt="10px"
+            {/* Smart Wallet Link */}
+            {isSmartWallet && (
+              <MotionBox
                 as={Link}
                 href="https://keys.coinbase.com"
                 rel="noopener noreferrer"
                 target="_blank"
                 w="100%"
-                borderRadius={"10px"}
-                display="flex"
-                justifyContent="center"
-                alignItems="center"
-                bg="#00BA8233"
-                color="#00976A"
-                py="10px"
-                px="10px"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.3 }}
               >
-                <Text fontSize="12px">View your wallet</Text>
-              </Box>
-            ) : null}
-          </Flex>
+                <Flex
+                  justify="space-between"
+                  align="center"
+                  w="100%"
+                  borderRadius="12px"
+                  bg="rgba(0, 186, 130, 0.1)"
+                  border="1px solid"
+                  borderColor="rgba(0, 186, 130, 0.3)"
+                  py="12px"
+                  px="16px"
+                  transition="all 0.3s"
+                  _hover={{
+                    bg: "rgba(0, 186, 130, 0.15)",
+                    borderColor: "rgba(0, 186, 130, 0.5)",
+                    transform: "translateX(4px)",
+                  }}
+                >
+                  <Text fontSize="14px" fontWeight="600" color="#00BA82">
+                    View Wallet on Coinbase
+                  </Text>
+                  <HiOutlineExternalLink size="16px" color="#00BA82" />
+                </Flex>
+              </MotionBox>
+            )}
 
-          <HStack mt="40px">
-            <Text fontWeight={400} fontSize="24px" className="fontBalance">
-              Balance
-            </Text>
-
-            <Box cursor="pointer" onClick={balanceVisibility}>
-              {isBalanceVisible ? (
-                <IoMdEye size="18px" color={COLORS.balTextColor} />
-              ) : (
-                <IoMdEyeOff size="18px" color={COLORS.balTextColor} />
-              )}
-            </Box>
-          </HStack>
-
-          {loadPortfolio ? (
-            <HStack spacing={2}>
-              <Spinner size="sm" color="teal.500" />
-              <Text fontSize="14px">Loading Balances</Text>
-            </HStack>
-          ) : (
-            <HStack>
-              <Text
-                fontWeight={400}
-                fontSize="36px"
-                color={COLORS.balTextColor}
-                lineHeight="43.2px"
-              >
-                {isBalanceVisible ? (
-                  <FormatNumber
-                    pre="$"
-                    amount={
-                      portfolioBalance?.value
-                        ? Number(
-                            userWalletTokens.reduce(
-                              (sum, item) => sum + item.quoteUSD,
-                              0
-                            )
-                          )
-                        : 0
-                    }
-                  />
-                ) : (
-                  "****"
-                )}
-              </Text>
-
-              {/* <Box
-                background="#00BA8233"
-                color="#00976A"
-                py="10px"
-                px="10px"
-                borderRadius="28.5px"
-              >
-                <Text fontSize="12px" lineHeight="14.4px">
-                  <FormatNumber
-                    pre={data ? (data.realized_pnl > 0 ? "-" : "+") : ""}
-                    amount={data ? data.realized_pnl : 0}
-                    suf="%"
-                  />
+            {/* Balance Section */}
+            <VStack align="start" spacing="12px" width="100%" mt="8px">
+              <HStack spacing="10px">
+                <Text fontWeight={600} fontSize="14px" color="rgba(255, 255, 255, 0.6)">
+                  Total Balance
                 </Text>
-              </Box> */}
 
-              <TokenPercentageDifference
-                data={userWalletTokens}
-                cacheDuration={300}
-                sum={userWalletTokens.reduce(
-                  (sum, item) => sum + item.quoteUSD,
-                  0
-                )}
-              />
-            </HStack>
-          )}
-        </Box>
+                <IconButton
+                  aria-label="Toggle balance visibility"
+                  icon={
+                    isBalanceVisible ? (
+                      <IoMdEye size="18px" />
+                    ) : (
+                      <IoMdEyeOff size="18px" />
+                    )
+                  }
+                  onClick={balanceVisibility}
+                  size="xs"
+                  bg="rgba(255, 255, 255, 0.05)"
+                  color="rgba(255, 255, 255, 0.7)"
+                  borderRadius="8px"
+                  _hover={{
+                    bg: "rgba(255, 255, 255, 0.1)",
+                  }}
+                />
+              </HStack>
+
+              {loadPortfolio ? (
+                <HStack spacing={3}>
+                  <Spinner size="md" color="#667eea" thickness="3px" />
+                  <Text fontSize="14px" color="rgba(255, 255, 255, 0.5)">
+                    Loading balances...
+                  </Text>
+                </HStack>
+              ) : (
+                <HStack spacing="12px" align="center">
+                  <Text
+                    fontWeight={700}
+                    fontSize="42px"
+                    bgGradient="linear(to-r, white, gray.400)"
+                    bgClip="text"
+                    lineHeight="1"
+                  >
+                    {isBalanceVisible ? (
+                      <FormatNumber
+                        pre="$"
+                        amount={
+                          portfolioBalance?.value
+                            ? Number(
+                                userWalletTokens.reduce(
+                                  (sum, item) => sum + item.quoteUSD,
+                                  0
+                                )
+                              )
+                            : 0
+                        }
+                      />
+                    ) : (
+                      "****"
+                    )}
+                  </Text>
+
+                  <TokenPercentageDifference
+                    data={userWalletTokens}
+                    cacheDuration={300}
+                    sum={userWalletTokens.reduce(
+                      (sum, item) => sum + item.quoteUSD,
+                      0
+                    )}
+                  />
+                </HStack>
+              )}
+            </VStack>
+          </VStack>
+        </MotionBox>
 
         <DrawerBody>
           <Tabs size="lg">

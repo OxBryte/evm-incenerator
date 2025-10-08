@@ -1,8 +1,8 @@
 "use client";
 
 import ContainerWrapper from "../ContainerWrapper";
-import { Box, HStack } from "@chakra-ui/react";
-import { memo } from "react";
+import { Box, HStack, useDisclosure } from "@chakra-ui/react";
+import { memo, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -10,11 +10,12 @@ import LogoSvg from "@/assets/icons/LogoSVG.svg";
 import ConnectButton from "../Buttons/ConnectButton";
 import { CustomConnectButton } from "../Buttons/SmartWalletButton";
 import { useAccount } from "wagmi";
-import { useAppKit } from "@reown/appkit/react";
+import ActivitiesModal from "../ActivitiesModal";
 
 const NavBar = () => {
   const { isConnected } = useAccount();
-  const { open } = useAppKit();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = useRef<HTMLButtonElement>(null);
 
   return (
     <Box

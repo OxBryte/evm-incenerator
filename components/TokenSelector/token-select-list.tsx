@@ -12,8 +12,7 @@ import TokenSelectListRow from "./token-select-row";
 import { useAccount } from "wagmi";
 import { MoralisAssetClass } from "@/utils/classes";
 import { Skeleton, SkeletonCircle } from "@chakra-ui/react";
-import { useWeb3Modal } from "@web3modal/wagmi/react";
-// import { useConnectModal } from "@rainbow-me/rainbowkit";
+import { useAppKit } from "@reown/appkit/react";
 
 interface TokenSelectListProps {
   userWalletTokens: MoralisAssetClass[] | undefined;

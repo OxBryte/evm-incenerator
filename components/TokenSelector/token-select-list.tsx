@@ -76,7 +76,7 @@ const ListContent: React.FC<ListContentProps> = ({
   error,
   walletBalance,
 }) => {
-  const { open } = useWeb3Modal();
+  const { open } = useAppKit();
 
   if (!address) {
     return (

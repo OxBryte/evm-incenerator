@@ -17,7 +17,7 @@ import abi from "@/constants/abi/assetscooper.json";
 import { assetscooper_contract as assetscooper } from "@/constants/contractAddress";
 import { Types, StateContext } from "@/provider/AppProvider";
 import { waitForTransactionReceipt } from "@wagmi/core";
-import { WALLETCONNECT_CONFIG } from "@/constants/config";
+import { config } from "@/provider/WagmiProvider";
 
 export type ExtendedErrorType = SimulateContractErrorType & {
   shortMessage?: string;

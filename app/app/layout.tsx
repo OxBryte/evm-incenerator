@@ -5,7 +5,6 @@ import { ReactNode } from "react";
 import AppNavbar from "@/components/AppLayout/Navbar";
 import { Flex, Box } from "@chakra-ui/react";
 import { StateContextProvider } from "@/provider/AppProvider";
-// import DialogModal from "@/components/DialogModal";
 
 interface MainAppLayoutProps {
   children: ReactNode;

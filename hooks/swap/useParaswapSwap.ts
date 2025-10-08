@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import BigNumber from "bignumber.js";
 import { OptimalRate, SwapSide, ParaSwapVersion } from "@paraswap/core";

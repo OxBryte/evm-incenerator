@@ -15,11 +15,11 @@ import { useAccount } from "wagmi";
 import { useAppKit } from "@reown/appkit/react";
 
 const NavBar = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen, onOpen, onClose } = useDisclosure();\
   const btnRef = useRef<HTMLButtonElement>(null);
 
   const { isConnected } = useAccount();
-  const { open, close } = useAppKit();
+  const { open } = useAppKit();
 
   return (
     <Box

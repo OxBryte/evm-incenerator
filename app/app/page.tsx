@@ -251,7 +251,11 @@ const Sweep: React.FC = () => {
           zIndex={1}
         >
           <Grid
-            templateColumns={{ base: "1fr", md: "repeat(2, 1fr)", lg: "repeat(4, 1fr)" }}
+            templateColumns={{
+              base: "1fr",
+              md: "repeat(2, 1fr)",
+              lg: "repeat(4, 1fr)",
+            }}
             gap="1.5rem"
             width="100%"
           >
@@ -333,7 +337,8 @@ const Sweep: React.FC = () => {
         {/* Add pulse animation keyframe */}
         <style jsx global>{`
           @keyframes pulse {
-            0%, 100% {
+            0%,
+            100% {
               opacity: 1;
             }
             50% {

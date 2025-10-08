@@ -53,7 +53,7 @@ export default async function RootLayout({
     // The client-side will handle the proper initialization
     initialState = undefined;
   }
-  
+
   return (
     <html lang="en">
       <body className="bg-background">

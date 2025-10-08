@@ -180,12 +180,12 @@ EVM Incinerator solves a common problem in DeFi: **dust tokens**. These are smal
 
 ### **Available Scripts**
 
-| Command       | Description                  |
-| ------------- | ---------------------------- |
-| `yarn dev`    | Start development server     |
-| `yarn build`  | Build for production         |
-| `yarn start`  | Start production server      |
-| `yarn lint`   | Run ESLint                   |
+| Command      | Description              |
+| ------------ | ------------------------ |
+| `yarn dev`   | Start development server |
+| `yarn build` | Build for production     |
+| `yarn start` | Start production server  |
+| `yarn lint`  | Run ESLint               |
 
 ### **Project Structure**
 
@@ -300,6 +300,7 @@ export const PARASWAP_TRANSFER_PROXY = "0x...";
 ## 🎯 Recent Updates
 
 ### **v0.1.0 - Modern UI Redesign**
+
 - ✨ Complete UI overhaul with modern dark theme
 - 🎨 Animated background gradients and smooth transitions
 - 🔄 Migrated from Web3Modal to Reown AppKit
